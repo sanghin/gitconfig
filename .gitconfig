@@ -11,7 +11,7 @@
 [format]
     pretty = oneline
 [core]
-    autocrlf = input
+    autocrlf = false
 [alias]
     stash-unapply = !git stash show -p | git apply -R
     st = status
@@ -31,6 +31,7 @@
     currentbranch = "!git branch | grep \"^\\*\" | cut -d \" \" -f 2"
     dsf = "!git diff --color $@ | diff-so-fancy"
     pr = pull --rebase
+    sc = config --list --show-origin
 [push]
 	default = current
 [pull]
