@@ -32,6 +32,7 @@
     dsf = "!git diff --color $@ | diff-so-fancy"
     pr = pull --rebase
     sc = config --list --show-origin
+    rmb = git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d # remove merged branch
 [push]
 	default = current
 [pull]
