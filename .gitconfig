@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
-    name = gledathegoat
-    email = gledathegoat@skyrim.com
+	name = sanghin
+	email = damien.bonnay@protonmail.com
 [color]
     ui = true
     branch = auto
@@ -12,6 +12,7 @@
     pretty = oneline
 [core]
     autocrlf = false
+	editor = code --wait
 [alias]
     stash-unapply = !git stash show -p | git apply -R
     st = status
@@ -39,3 +40,7 @@
 	rebase=true
 [remote "origin"]
 	prune=true
+[diff]
+    tool = default-difftool
+[difftool "default-difftool"]
+    cmd = code --wait --diff $LOCAL $REMOTE
