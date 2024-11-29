@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
-	name = sanghin
-	email = damien.bonnay@protonmail.com
+    name = sanghin
+    email = contact@sanghin.com
 [color]
     ui = true
     branch = auto
@@ -12,14 +12,15 @@
     pretty = oneline
 [core]
     autocrlf = false
-	editor = code --wait
+    editor = code --wait
+    ignorecase = false
 [alias]
     stash-unapply = !git stash show -p | git apply -R
     st = status
     stp = status --porcelain
     ci = commit
     br = branch
-    co = checkout
+    co = "!f() { git fetch && git checkout $1; }; f"
     rz = reset --hard HEAD
     pullr = pull --rebase
     unstage = reset HEAD
@@ -35,12 +36,17 @@
     sc = config --list --show-origin
     #rmb = branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d
 [push]
-	default = current
+    default = current
 [pull]
-	rebase=true
+    rebase=true
 [remote "origin"]
-	prune=true
+    prune=true
 [diff]
     tool = default-difftool
 [difftool "default-difftool"]
     cmd = code --wait --diff $LOCAL $REMOTE
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
